@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: silver;
+        }
+
+        .input-num {
+            width: 200px;
+            height: 30px;
+            display: flex;
+        }
+
+        button {
+            height: 30px;
+            width: 50px;
+            background-color: #666;
+            font-size: 20px;
+            color: red;
+        }
+
+        span {
+            flex: 1;
+            height: 30px;
+            font-size: 20px;
+            background-color: #fff;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="input-num">
+            <button @click="sub">-</button>
+            <span>
+                {{message}}
+            </span>
+            <button @click="add">+</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: 1
+            },
+            methods: {
+                add: function () {
+                    this.message += 1;
+                    if (this.message > 10) {
+                        alert("不能再加了！");
+
+                    }
+                },
+                sub: function () {
+                    this.message -= 1;
+                    alert("不能再减了！");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

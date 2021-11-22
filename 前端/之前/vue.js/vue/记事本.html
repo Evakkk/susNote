@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="message" @keyup.enter="enter">
+        <ul>
+            <li v-for="(item,index) in arr" @click="dele(index)">{{index+1}}{{item}}</li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "",
+                arr: [],
+                i: 0
+            },
+            methods: {
+                enter: function () {
+                    this.arr.push(this.message);
+                },
+                dele: function (index) {
+                    this.arr.splice(index, 1);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

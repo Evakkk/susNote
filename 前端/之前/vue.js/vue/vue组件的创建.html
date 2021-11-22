@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用组件直接把组件的名称以html标签形式引入 -->
+        <mycom1></mycom1>
+        <my-com2></my-com2>
+        <mycom3></mycom3>
+    </div>
+    <div id="app2">
+        <login></login>
+    </div>
+    <!-- 在被控制#app外面，定义template元素 -->
+    <template id="tmp">
+        <div>
+            <h3>这是通过temlate元素，在外部定义的组件结构，这个方式有html标签的提示</h3>
+        </div>
+    </template>
+    <template id="tmp2">
+        <div>
+            <h2>这是app2私有的login组件</h2>
+        </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //注意：无论以哪种方式创建组件，template元素内容必须有且只有一个根元素
+        //创建方式1
+        // Vue.extend定义vue组件
+        var com1 = Vue.extend({
+            template: '<h3>这是使用Vue.extend创建的组件</h3>'//template定义组件要展示的内容
+        })
+        // Vue.component('组件名称', 创建出来组件的模板对象)
+        Vue.component('mycom1', com1)
+
+        //创建方式2
+        //注意驼峰命名法在HTML加上“-”，大写变小写
+        Vue.component('myCom2', {
+            template: '<h3>这是直接使用Vue.componnent创建的组件</h3>'
+        })
+        //创建方式3
+        Vue.component('mycom3', {
+            template: '#tmp'
+        })
+        var app = new Vue({
+            el: "#app"
+        })
+        var vm = new Vue({
+            el: "#app2",
+            components: {
+                login: {
+                    template: '#tmp2'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

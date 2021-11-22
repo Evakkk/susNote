@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="走马灯" @click="animate">
+        <input type="button" value="停止" @click="stop">
+        <p>{{msg}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: "加油学习！冲冲冲！",
+                timer: null,
+                flag: true
+            },
+            methods: {
+                animate: function () {
+                    var that = this;
+                    //节流阀
+                    if (this.flag) {
+                        this.flag = false;
+                        this.timer = setInterval(function () {
+                            var start = that.msg.substring(0, 1);
+                            var end = that.msg.substring(1);
+                            that.msg = end + start;
+                            //回调函数等上一动作结束后再执行，等清除了定时器才可以执行回调
+                        }, 300, function () {
+                            that.flag = true;
+                        })
+                    }
+                },
+                stop() {
+                    clearTimeout(this.timer);
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

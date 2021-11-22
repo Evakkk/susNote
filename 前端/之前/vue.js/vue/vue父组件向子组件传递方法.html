@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="id">
+        <!-- 父组件向子组件传递方法使用事件绑定机制v-on -->
+        <com1 @func="show"></com1>
+    </div>
+    <template id="tmp">
+        <div>
+            <h1>这是子组件</h1>
+            <input type="button" value="这是子组件的按钮" @click="myclick">
+        </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var com1 = {
+            template: '#tmp',
+            data() {
+                return {
+                    msg: { name: "小梦", age: 16 }
+                }
+            },
+            methods: {
+                myclick() {
+                    this.$emit('func', this.msg);
+                }
+            }
+
+        }
+        var ap = new Vue({
+            el: "#id",
+            data: {
+                datamsgformson: null
+            },
+            methods: {
+                show(data) {
+                    this.datamsgformson = data;
+                    console.log(data);
+                }
+            },
+            components: {
+                com1
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>

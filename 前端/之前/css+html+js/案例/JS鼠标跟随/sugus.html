@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <img src="pic.jpg" alt="shubiao">
+    <script>
+        var img=document.querySelector('img');
+        document.addEventListener('mousemove',function(e){
+            var x=e.clientX-25+'px';
+            var y=e.clientY-25+'px';
+            img.style.top=y;
+            img.style.left=x;
+        })
+    </script>
+</body>
+</html>

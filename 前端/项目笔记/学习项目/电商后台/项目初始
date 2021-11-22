@@ -1,0 +1,30 @@
+vue create创建项目 （babel、router、element）
+
+#### 代码托管
+
+可以将代码传至github或者gitee进行托管
+
+#### 导入数据库（后端）
+
+* 安装phpStudy
+* 运行mysql服务
+* mysql管理器 → 导入导出
+* 出现命令窗口，执行完成命令窗口自动关闭
+* 在phpStudy → mysql → data → 数据库名底下检查是否有文件 √ 则导入成功
+
+#### 配置api接口，使用postman调试接口
+
+* 解压接口文件
+* npm install 下载依赖
+* node .\app.js      执行
+
+![image-20210126160523828](../../../笔记/image/image-20210126160523828.png)
+
+* postman调试
+
+  * 下载postman并运行
+
+  * 输入接口地址
+
+    ![image-20210126160657898](../../../笔记/image/image-20210126160657898.png)
+

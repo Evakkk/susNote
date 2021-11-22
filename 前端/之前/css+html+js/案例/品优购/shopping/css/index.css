@@ -1,0 +1,26 @@
+.main {
+    height: 455px;
+    margin-left: 220px;
+    margin-top: 10px;
+}
+.main .focus {
+    height: 455px;
+    width: 721px;
+    float: left;
+}
+.main .newsflash {
+    height: 455px;
+    width: 250px;
+    float: right;
+    
+    background-color: aqua;
+}
+.main .newsflash .news {
+    height: 165px;
+}
+.main .newsflash .lifeservice {
+    height: 209px;
+}
+.main .newsflash .bargain {
+    margin-top: 6px;
+}

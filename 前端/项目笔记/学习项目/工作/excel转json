@@ -1,0 +1,242 @@
+#### v-for
+
+```vue
+ <div v-for="o in 4" :key="o" class="text item">
+      {{ "列表内容 " + o }}
+</div>
+```
+
+####  二维数组去除全空数组
+
+let data2=data.filter(item=>item.filter(child=>child!=null).length>0)
+
+#### 去除末尾空值
+
+```js
+splitNul(ar) {
+   let length=ar.length
+   for(let i=length-1;i>=0;i--)
+   {
+    if(ar[i]==null)
+    {
+     ar.pop() 
+    }else{ 
+     return ar;
+    }
+   }
+   return ar;
+  },
+
+```
+
+#### 一些方法
+
+* String(str)：强转成字符串
+* Number(str)：强转成数字
+* Boolean(str)：强转成布尔型
+* JSON.stringify(ob)：对象转字符串
+* JSON.parse(ob)：字符串转对象
+
+  
+
+#### 转成字符串3
+
+ **转换成string类型，有三种方式：变量.toString(); String('值'); 使用'+'拼接一个字符串;**
+
+ 每种方式都有使用的范围，我们可以通过下来代码得出以下结论：
+
+ 在基本数据类型中，
+
+​				（1）只有number、boolean 类型调用toString()进行类型转换。
+
+​                   		 undefined、null中没有toString()方法。
+
+​                   	 	 toString()只能作用在变量身上，不能作用在常量上。
+
+ ​               （2） undefiend与null可以通过String()转换称为字符串。
+
+​                   	  常量可以使用String()转换称为字符串。
+
+ ​               （3）所有的类型都可以通过拼接字符串转换成字符串。
+
+ 						在数组中，可以调用toString()方法与拼接字符串转换，但是不能使用String()。
+
+#### 字符串转数字
+
+* parseInt() 函数
+* parseFloat() 
+* Number(value)
+* **js变量弱类型转换**
+  *  str - 0
+  * x * 1
+* [JS字符串转换成数字的三种经典方法和代码实例](https://blog.csdn.net/chicnancy/article/details/73865369)
+
+#### 向对象添加元素
+
+* 基本方法
+
+```js
+let obj ={"name":"tom","age":16}
+let key = "id";
+let value = 2
+obj[key] = value;
+console.log(obj3)
+```
+
+
+
+* 扩展运算符
+
+```js
+
+var obj1={"vue":300,"jquery":200};
+var obj2={"react":500};
+var obj3={
+	...obj1,
+	...obj2
+}
+console.log(obj3)
+```
+
+
+
+* assign
+
+```js
+let obj4 = {a:"1"};
+let obj5 = {b:"2"};
+let obj6 = {c:"3"};
+Object.assign(obj4,obj5,obj6);
+console.log(obj4)
+```
+
+#### 字符与ASCII码互转
+
+```js
+var str = "A";
+str.charCodeAt();  // 65
+
+var num = 97;
+String.fromCharCode(num);  // 'a'
+```
+
+#### 有效判断一个值是否是 null 或 undefined
+
+```js
+//==号判断 
+if ( some_variable == null ){
+   // some_variable is either null or undefined
+ }
+
+//!号判断
+if ( !some_variable ) {
+  // some_variable is either null, undefined, 0, NaN, false, or an empty string
+}
+```
+
+#### typeof
+
+typeof 返回的是字符串,有六种可能:**"number" "String" "boolean" "object" "function" "undefined"** 
+
+#### watch
+
+```js
+  resType:{
+      handler(){
+      },
+      // deep:true,
+      // immediate:true
+      
+    },
+```
+
+
+
+## handsontable库-vue
+
+#### 基本使用
+
+* 安装
+
+  npm install
+
+* 引入
+
+![image-20210201165028794](../../../笔记/image/image-20210201165028794.png)
+
+* 使用
+
+![image-20210201164954438](../../../笔记/image/image-20210201164954438.png)
+
+```js
+data:function(){
+	return {
+     	hotSettings: {
+            data: [
+              //数据可以是二维数组，也可以是数组对象
+              [],
+            ],
+            contextMenu: {
+         		 items: {
+                    clear:{
+                          name:"清空",
+                          callback:()=>{
+                            this.table.clear();
+                          }
+           		 	},
+                    mergeCells: {
+                     	 name: "合并单元格",
+                    },
+        		}
+            }
+    }
+}
+
+```
+
+
+
+#### 方法
+
+* 获取对象
+
+  ​	this.$refs.testHot.hotInstance
+
+* 获取选中范围
+
+  ​	 this.$refs.testHot.hotInstance.getSelected();
+
+* 获取表格数据
+
+  ​	...getData();
+
+* 渲染
+
+  [官网](https://handsontable.com/docs/8.3.0/frameworks-wrapper-for-vue-hot-column.html)
+
+  [笔记](https://www.cnblogs.com/QiuJL/p/6956704.html)
+
+## 滚动条
+
+样式
+
+```js
+ 		::-webkit-scrollbar {
+            width:8px;
+            height: 8px;
+            background-color: transparent;
+        }
+
+        /* 滚动槽 */
+        ::-webkit-scrollbar-track {
+       		border-radius:4px;
+        }
+
+        /* 滚动条滑块 */
+        ::-webkit-scrollbar-thumb {
+            border-radius:4px;
+            background:#bebebf;
+        }
+```
+
+js

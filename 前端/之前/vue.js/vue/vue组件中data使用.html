@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="id">
+        <com1></com1>
+    </div>
+    <template id="tmp">
+        <div>
+            <input type="button" @click="add" value="累加">
+            <h1>vue组件</h1>
+            <h2>{{count}}</h2>
+        </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var dataObj = { count: 0 }
+        Vue.component('com1', {
+            template: "#tmp",
+            data: function () {
+                // return dataObj
+                return { count: 0 }
+            },
+            methods: {
+                add() {
+                    this.count++;
+                }
+            }
+        })
+        var vm = new Vue({
+            el: "#id"
+        })
+    </script>
+</body>
+
+</html>
